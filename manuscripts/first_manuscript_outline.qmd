@@ -1,0 +1,281 @@
+---
+title: "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive"
+subtitle: "ISSA reflectance, derivative shape analysis, BVCM modeling, and spectrum validation"
+format:
+  html:
+    toc: true
+    number-sections: false
+bibliography: ../references.bib
+---
+
+<!--
+## Central Aim
+
+Develop a reproducible framework for evaluating whether simulated skin reflectance spectra reproduce the empirical level, wavelength-dependent structure, and shape variation observed in ISSA spectral reflectance measurements.
+
+## Main Contributions
+
+1. Characterize the ISSA spectral reflectance dataset and summarize the empirical distribution of skin reflectance across wavelengths, subjects, and measurement conditions.
+2. Introduce derivative-based shape descriptors for skin spectra to separate level differences from wavelength-localized curvature and slope features.
+3. Estimate a Bayesian varying coefficient model (BVCM) for reflectance spectra as functional outcomes with wavelength-specific covariate effects.
+4. Use the fitted BVCM to define and apply a spectrum validation framework for simulated skin reflectance spectra.
+-->
+
+## Introduction
+
+### Motivation
+
+- Human skin reflectance spectra are used in dermatology, imaging, cosmetics, computer graphics, and fairness-sensitive computer vision applications.
+- Simulated spectra can expand coverage of skin conditions and acquisition settings, but their scientific value depends on validation against real measurements.
+- Validation should account for full-spectrum behavior, not only colorimetric summaries or pointwise error metrics.
+
+### Gap
+
+- Existing validation often emphasizes visual agreement, broadband color summaries, or parameter-level plausibility.
+- Skin reflectance spectra contain structured wavelength-dependent variation, including shape features associated with melanin, hemoglobin absorption, and scattering.
+- A statistical validation framework should evaluate both spectral level and spectral shape under uncertainty.
+
+### Objective
+
+Use ISSA as an empirical reference dataset to build and demonstrate a BVCM-based framework for validating simulated spectra.
+
+### Expected Contributions
+
+- Descriptive baseline for ISSA reflectance spectra.
+- Derivative-based representation of spectral shape.
+- BVCM estimation strategy for spectral reflectance.
+- Validation scores and diagnostics for simulated spectra.
+
+## Data: ISSA Spectral Reflectance Dataset
+
+### Dataset Description
+
+- Source: International Skin Spectra Archive (ISSA).
+- Unit of observation: skin reflectance spectrum measured over wavelength.
+- Key metadata to summarize:
+  - subject-level attributes,
+  - anatomical site or body location,
+  - geographic or demographic groupings,
+  - measurement conditions,
+  - colorimetric summaries if available.
+
+### Preprocessing
+
+- Define wavelength grid used for analysis.
+- Document exclusions, missingness handling, and quality-control filters.
+- Align spectra to a common grid if needed.
+- Standardize reflectance scale and units.
+- Identify repeated measurements and subject-level clustering.
+
+### Descriptive Spectral Analysis
+
+- Plot raw and smoothed spectra.
+- Estimate empirical mean and quantile bands across wavelength.
+- Summarize variability by metadata groups.
+- Compare spectral summaries with colorimetric quantities.
+- Identify wavelength regions with high between-subject variability.
+
+### Proposed Figures and Tables
+
+- Figure 1: ISSA spectra overview with empirical mean and quantile bands.
+- Figure 2: Grouped spectral summaries by key metadata variables.
+- Table 1: Dataset characteristics, sample sizes, wavelength range, and preprocessing exclusions.
+- Supplementary Figure S1: Missingness and quality-control diagnostics.
+
+### Section Deliverable
+
+Establish ISSA as the empirical reference distribution for downstream shape analysis, BVCM estimation, and simulation validation.
+
+## Derivative-Based Shape Analysis
+
+### Rationale
+
+- Reflectance level and spectral shape capture different aspects of skin appearance.
+- First derivatives highlight slope and monotonicity patterns.
+- Second derivatives highlight curvature and absorption-related local structure.
+- Derivative features can make simulation discrepancies visible even when spectra have similar overall brightness.
+
+### Method
+
+- Smooth reflectance spectra before numerical differentiation.
+- Compute first derivative with respect to wavelength.
+- Compute second derivative with respect to wavelength.
+- Define shape summaries such as:
+  - integrated absolute first derivative,
+  - wavelength-specific slope extrema,
+  - curvature extrema,
+  - derivative-based distances between spectra,
+  - region-specific derivative summaries.
+
+### Descriptive Shape Results
+
+- Characterize derivative distributions across wavelengths.
+- Identify dominant slope and curvature regions.
+- Compare derivative features across skin tone or metadata groups.
+- Evaluate whether simulated spectra reproduce ISSA derivative patterns.
+
+### Proposed Figures and Tables
+
+- Figure 3: Mean reflectance, first derivative, and second derivative with uncertainty bands.
+- Figure 4: Derivative feature distributions by group.
+- Figure 5: Example spectra with similar level but different derivative-based shapes.
+- Table 2: Candidate shape descriptors and their interpretation.
+
+### Section Deliverable
+
+Define the spectral shape features that motivate full-spectrum validation beyond pointwise reflectance agreement.
+
+## BVCM Model: Method and Estimation
+
+### Modeling Goal
+
+Estimate wavelength-varying associations between reflectance and covariates while preserving uncertainty in the functional response.
+
+### Model Specification
+
+Let \(Y_i(\lambda)\) denote reflectance for observation \(i\) at wavelength \(\lambda\). A working BVCM can be written as:
+
+\[
+Y_i(\lambda) = \beta_0(\lambda) + \sum_{p=1}^{P} x_{ip}\beta_p(\lambda) + \epsilon_i(\lambda),
+\]
+
+where \(\beta_p(\lambda)\) are wavelength-varying coefficient functions and \(\epsilon_i(\lambda)\) captures residual spectral variation.
+
+### Covariates
+
+- Candidate ISSA covariates:
+  - colorimetric summaries,
+  - demographic variables,
+  - anatomical site,
+  - measurement or acquisition descriptors.
+- Candidate simulation covariates:
+  - melanin-related parameters,
+  - hemoglobin or erythema-related parameters,
+  - scattering parameters,
+  - thickness or layer parameters.
+
+### Prior Structure
+
+- Use smoothness-inducing priors for coefficient functions.
+- Account for wavelength-wise correlation in residuals when feasible.
+- Include hierarchical terms for repeated observations or subject-level clustering if supported by data structure.
+
+### Estimation
+
+- Estimate posterior distributions for coefficient functions.
+- Report convergence diagnostics and posterior predictive checks.
+- Compare alternative model forms:
+  - intercept-only empirical reference model,
+  - covariate-adjusted BVCM,
+  - derivative-informed or derivative-validated extensions.
+
+### Proposed Figures and Tables
+
+- Figure 6: Posterior mean and credible intervals for selected coefficient functions.
+- Figure 7: Posterior predictive checks across wavelength.
+- Table 3: Model specification, priors, and estimation settings.
+- Supplementary Figure S2: MCMC diagnostics and sensitivity checks.
+
+### Section Deliverable
+
+Produce an estimated probabilistic reference model for empirical reflectance spectra and wavelength-varying effects.
+
+## BVCM-Based Spectrum Validation Framework
+
+### Validation Objective
+
+Assess whether a simulated spectrum is compatible with the empirical spectral distribution represented by the fitted BVCM.
+
+### Validation Inputs
+
+- Fitted BVCM from ISSA spectra.
+- Simulated spectra generated from the SkinSim pipeline.
+- Covariate or parameter information needed to condition the validation model.
+
+### Validation Targets
+
+- Pointwise validity:
+  - wavelength-specific posterior predictive intervals,
+  - local exceedance probabilities,
+  - regions of systematic over- or under-reflectance.
+- Conditional validity:
+  - compatibility given observed or simulated covariates,
+  - subgroup-specific validation when metadata are available.
+- Whole-spectrum validity:
+  - posterior predictive distance,
+  - integrated residual summaries,
+  - derivative-based shape discrepancy.
+
+### Proposed Validation Metrics
+
+- Pointwise coverage indicator across wavelength.
+- Integrated absolute standardized residual.
+- Maximum absolute standardized residual.
+- Derivative discrepancy score.
+- Posterior predictive p-value or tail probability.
+- Composite validity score combining level and shape diagnostics.
+
+### Application to Simulated Spectra
+
+- Apply validation framework to the existing simulated spectrum set.
+- Compare validation results across simulation parameter regimes.
+- Identify spectra that pass level-based checks but fail shape-based checks.
+- Identify wavelength regions where simulations deviate most from ISSA.
+
+### Proposed Figures and Tables
+
+- Figure 8: Simulated spectra overlaid on BVCM posterior predictive bands.
+- Figure 9: Pointwise validity heatmap across simulated spectra and wavelength.
+- Figure 10: Level discrepancy versus derivative shape discrepancy.
+- Table 4: Validation metric summaries for simulated spectra.
+- Supplementary Table S1: Spectrum-level validation scores.
+
+### Section Deliverable
+
+Demonstrate a practical validation workflow that distinguishes empirically plausible simulated spectra from spectra with wavelength-localized or shape-based discrepancies.
+
+## Discussion
+
+### Main Findings
+
+- Summarize empirical ISSA spectral patterns.
+- Interpret derivative-based shape features.
+- Discuss wavelength-varying effects from the BVCM.
+- Explain what the validation framework reveals about simulated spectra.
+
+### Implications
+
+- Statistical validation can improve simulation pipelines by identifying wavelength regions and shape features needing refinement.
+- BVCM-based validation offers uncertainty-aware diagnostics rather than binary acceptance rules.
+- The framework can support future simulation studies, sensor design, and fairness-aware skin appearance modeling.
+
+### Limitations
+
+- ISSA measurement conditions and metadata may limit generalizability.
+- BVCM assumptions about smoothness, covariance, and covariate availability require sensitivity analysis.
+- Simulated spectra may have parameters that do not map directly to ISSA metadata.
+- Derivative estimates depend on smoothing and wavelength resolution.
+
+### Future Work
+
+- Extend validation to additional real spectral datasets.
+- Incorporate hierarchical subject-level effects more fully.
+- Model derivative spectra jointly with reflectance spectra.
+- Use validation diagnostics to recalibrate simulation parameters.
+
+## Conclusion
+
+This manuscript will present ISSA-based empirical characterization, derivative-based shape analysis, BVCM estimation, and a BVCM-derived validation framework for simulated human skin reflectance spectra. The central result is a reproducible uncertainty-aware approach for evaluating whether simulated spectra are not only visually plausible, but statistically compatible with real measured skin reflectance.
+
+## Analysis-to-Manuscript Mapping
+
+| Manuscript component | Existing project source | Expected manuscript output |
+|---|---|---|
+| ISSA data and descriptive analysis | `notebooks/issa_data.ipynb` | Dataset description, preprocessing, descriptive figures |
+| Derivative-based shape analysis | `notebooks/shape.ipynb` | Shape descriptors, derivative plots, shape discrepancies |
+| BVCM method and estimation | `notebooks/bvcm.ipynb`, `code/bvcm_gibbs.py` | Model specification, estimation diagnostics, coefficient functions |
+| Spectrum validation framework | `analysis/sim_data.qmd`, `output/*validity.csv` | Validation metrics, simulated spectrum diagnostics |
+
+## Draft Abstract Placeholder
+
+Simulated skin reflectance spectra are increasingly used to study skin appearance, imaging systems, and downstream algorithms, but their utility depends on validation against real spectral measurements. We use the International Skin Spectra Archive as an empirical reference dataset and develop a Bayesian varying coefficient model for wavelength-indexed reflectance. We first describe empirical ISSA spectra and introduce derivative-based shape summaries that capture slope and curvature features beyond overall reflectance level. We then estimate wavelength-varying covariate effects and posterior predictive distributions for reflectance spectra. Finally, we use the fitted model to construct a validation framework for simulated spectra, combining pointwise coverage, whole-spectrum discrepancy, and derivative-based shape diagnostics. The framework identifies wavelength regions and shape characteristics where simulations agree with or deviate from empirical skin reflectance, providing an uncertainty-aware tool for improving and validating skin spectrum simulation pipelines.

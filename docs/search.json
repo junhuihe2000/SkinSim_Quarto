@@ -347,7 +347,7 @@
     "href": "notebooks/bvcm.html#gibbs-sampler",
     "title": "Bayesian Varying Coefficient Model (BVCM) for Skin Reflectance Spectra",
     "section": "3.2 Gibbs sampler",
-    "text": "3.2 Gibbs sampler\n\n\nStarting Gibbs Sampler for 10000 draws and 10000 tune steps...\nHyperparameter Acceptance Rate: 15.83%"
+    "text": "3.2 Gibbs sampler\n\n\nStarting Gibbs Sampler for 10000 draws and 10000 tune steps...\nHyperparameter Acceptance Rate: 15.88%"
   },
   {
     "objectID": "notebooks/bvcm.html#posterior-visualization",
@@ -361,35 +361,35 @@
     "href": "notebooks/bvcm.html#evaluation-on-training-data",
     "title": "Bayesian Varying Coefficient Model (BVCM) for Skin Reflectance Spectra",
     "section": "4.1 Evaluation on training data",
-    "text": "4.1 Evaluation on training data\n\n\n\n\n\n\n\n\n\nModel\nR²\nRMSE (%)\nMAE (%)\n\n\n\n\n0\nPopulation-Level (Fixed Effects)\n0.965279\n1.410466\n1.051930\n\n\n1\nSubject-Specific (Fixed + Random)\n0.999319\n0.197521\n0.131806"
+    "text": "4.1 Evaluation on training data\n\n\n\n\n\n\n\n\n\nModel\nR²\nRMSE (%)\nMAE (%)\n\n\n\n\n0\nPopulation-Level (Fixed Effects)\n0.965248\n1.411095\n1.053455\n\n\n1\nSubject-Specific (Fixed + Random)\n0.999319\n0.197515\n0.131818"
   },
   {
     "objectID": "notebooks/bvcm.html#evaluation-on-test-data",
     "href": "notebooks/bvcm.html#evaluation-on-test-data",
     "title": "Bayesian Varying Coefficient Model (BVCM) for Skin Reflectance Spectra",
     "section": "4.2 Evaluation on test data",
-    "text": "4.2 Evaluation on test data\n\n\n\n\n\n\n\n\n\nModel\nR²\nRMSE (%)\nMAE (%)\n\n\n\n\n0\nPopulation-Level (Fixed Effects)\n0.964615\n1.427337\n1.067989"
+    "text": "4.2 Evaluation on test data\n\n\n\n\n\n\n\n\n\nModel\nR²\nRMSE (%)\nMAE (%)\n\n\n\n\n0\nPopulation-Level (Fixed Effects)\n0.964578\n1.428091\n1.06963"
   },
   {
     "objectID": "notebooks/bvcm.html#stage-1-chromophore-index-validation",
     "href": "notebooks/bvcm.html#stage-1-chromophore-index-validation",
     "title": "Bayesian Varying Coefficient Model (BVCM) for Skin Reflectance Spectra",
-    "section": "6.1 Stage 1: Chromophore index validation",
-    "text": "6.1 Stage 1: Chromophore index validation"
+    "section": "6.2 Stage 1: Chromophore index validation",
+    "text": "6.2 Stage 1: Chromophore index validation"
   },
   {
     "objectID": "notebooks/bvcm.html#stage-2-spectral-plausibility-assessment",
     "href": "notebooks/bvcm.html#stage-2-spectral-plausibility-assessment",
     "title": "Bayesian Varying Coefficient Model (BVCM) for Skin Reflectance Spectra",
-    "section": "6.2 Stage 2: Spectral plausibility assessment",
-    "text": "6.2 Stage 2: Spectral plausibility assessment"
+    "section": "6.3 Stage 2: Spectral plausibility assessment",
+    "text": "6.3 Stage 2: Spectral plausibility assessment"
   },
   {
     "objectID": "notebooks/bvcm.html#validation-results-summary",
     "href": "notebooks/bvcm.html#validation-results-summary",
     "title": "Bayesian Varying Coefficient Model (BVCM) for Skin Reflectance Spectra",
-    "section": "6.3 Validation results summary",
-    "text": "6.3 Validation results summary\n\n\n\n\n\n\n\n\n\n\n\n\n======================================================================\nTWO-STAGE VALIDATION FILTER SUMMARY\n======================================================================\n\nStage 1: Chromophore Index Validation (GMM 95% CI)\n  Input spectra: 3624\n  Valid (within GMM): 1481 (40.9%)\n  Invalid (outside GMM): 2143 (59.1%)\n\nStage 2: Spectral Plausibility Assessment (Mahalanobis Distance)\n  Input (from Stage 1): 1481\n  Threshold: 9.41 (95th percentile from training)\n  Valid (plausible spectra): 986 (66.6%)\n  Invalid (implausible spectra): 495 (33.4%)\n\nOverall Filter Performance:\n  Total input: 3624\n  Total valid: 986 (27.2%)\n  Total rejected: 2638 (72.8%)\n\nChromophore Index Statistics (Valid Spectra):\n  Melanin Index: [20.37, 97.38]\n  Erythema Index: [16.32, 49.44]\n======================================================================"
+    "section": "6.5 Validation results summary",
+    "text": "6.5 Validation results summary\n\n\n\n\n\n\n\n\n\n\n\n\n======================================================================\nTWO-STAGE VALIDATION FILTER SUMMARY\n======================================================================\n\nStage 1: Chromophore Index Validation (GMM 95% CI)\n  Input spectra: 3624\n  Valid (within GMM): 1481 (40.9%)\n  Invalid (outside GMM): 2143 (59.1%)\n\nStage 2: Spectral Plausibility Assessment (Mahalanobis Distance)\n  Input (from Stage 1): 1481\n  Threshold: 9.41 (95th percentile from training)\n  Valid (plausible spectra): 986 (66.6%)\n  Invalid (implausible spectra): 495 (33.4%)\n\nOverall Filter Performance:\n  Total input: 3624\n  Total valid: 986 (27.2%)\n  Total rejected: 2638 (72.8%)\n\nChromophore Index Statistics (Valid Spectra):\n  Melanin Index: [20.37, 97.38]\n  Erythema Index: [16.32, 49.44]\n======================================================================"
   },
   {
     "objectID": "notebooks/bioskin_note.html",
@@ -432,5 +432,117 @@
     "title": "BioSkin Technical Note",
     "section": "1.3 Compact Summary",
     "text": "1.3 Compact Summary\nForward:\nBiophysical skin parameters\n    -&gt; human skin model / brute-force Monte Carlo\n    -&gt; spectral reflectance\n    -&gt; RGB / CIE LAB\n\nInverse:\nRGB\n    -&gt; encoder\n    -&gt; biophysical skin parameters\n    -&gt; decoder\n    -&gt; spectral reflectance\n    -&gt; render\n    -&gt; RGB"
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html",
+    "href": "manuscripts/first_manuscript_outline.html",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "",
+    "text": "Human skin reflectance spectra are used in dermatology, imaging, cosmetics, computer graphics, and fairness-sensitive computer vision applications.\nSimulated spectra can expand coverage of skin conditions and acquisition settings, but their scientific value depends on validation against real measurements.\nValidation should account for full-spectrum behavior, not only colorimetric summaries or pointwise error metrics.\n\n\n\n\n\nExisting validation often emphasizes visual agreement, broadband color summaries, or parameter-level plausibility.\nSkin reflectance spectra contain structured wavelength-dependent variation, including shape features associated with melanin, hemoglobin absorption, and scattering.\nA statistical validation framework should evaluate both spectral level and spectral shape under uncertainty.\n\n\n\n\nUse ISSA as an empirical reference dataset to build and demonstrate a BVCM-based framework for validating simulated spectra.\n\n\n\n\nDescriptive baseline for ISSA reflectance spectra.\nDerivative-based representation of spectral shape.\nBVCM estimation strategy for spectral reflectance.\nValidation scores and diagnostics for simulated spectra."
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#working-title",
+    "href": "manuscripts/first_manuscript_outline.html#working-title",
+    "title": "First Manuscript Outline",
+    "section": "",
+    "text": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive"
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#central-aim",
+    "href": "manuscripts/first_manuscript_outline.html#central-aim",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "",
+    "text": "Develop a reproducible framework for evaluating whether simulated skin reflectance spectra reproduce the empirical level, wavelength-dependent structure, and shape variation observed in ISSA spectral reflectance measurements."
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#main-contributions",
+    "href": "manuscripts/first_manuscript_outline.html#main-contributions",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "Main Contributions",
+    "text": "Main Contributions\n\nCharacterize the ISSA spectral reflectance dataset and summarize the empirical distribution of skin reflectance across wavelengths, subjects, and measurement conditions.\nIntroduce derivative-based shape descriptors for skin spectra to separate level differences from wavelength-localized curvature and slope features.\nEstimate a Bayesian varying coefficient model (BVCM) for reflectance spectra as functional outcomes with wavelength-specific covariate effects.\nUse the fitted BVCM to define and apply a spectrum validation framework for simulated skin reflectance spectra."
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#proposed-manuscript-structure",
+    "href": "manuscripts/first_manuscript_outline.html#proposed-manuscript-structure",
+    "title": "First Manuscript Outline",
+    "section": "4 Proposed Manuscript Structure",
+    "text": "4 Proposed Manuscript Structure"
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#introduction",
+    "href": "manuscripts/first_manuscript_outline.html#introduction",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "",
+    "text": "Human skin reflectance spectra are used in dermatology, imaging, cosmetics, computer graphics, and fairness-sensitive computer vision applications.\nSimulated spectra can expand coverage of skin conditions and acquisition settings, but their scientific value depends on validation against real measurements.\nValidation should account for full-spectrum behavior, not only colorimetric summaries or pointwise error metrics.\n\n\n\n\n\nExisting validation often emphasizes visual agreement, broadband color summaries, or parameter-level plausibility.\nSkin reflectance spectra contain structured wavelength-dependent variation, including shape features associated with melanin, hemoglobin absorption, and scattering.\nA statistical validation framework should evaluate both spectral level and spectral shape under uncertainty.\n\n\n\n\nUse ISSA as an empirical reference dataset to build and demonstrate a BVCM-based framework for validating simulated spectra.\n\n\n\n\nDescriptive baseline for ISSA reflectance spectra.\nDerivative-based representation of spectral shape.\nBVCM estimation strategy for spectral reflectance.\nValidation scores and diagnostics for simulated spectra."
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#data-issa-spectral-reflectance-dataset",
+    "href": "manuscripts/first_manuscript_outline.html#data-issa-spectral-reflectance-dataset",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "Data: ISSA Spectral Reflectance Dataset",
+    "text": "Data: ISSA Spectral Reflectance Dataset\n\nDataset Description\n\nSource: International Skin Spectra Archive (ISSA).\nUnit of observation: skin reflectance spectrum measured over wavelength.\nKey metadata to summarize:\n\nsubject-level attributes,\nanatomical site or body location,\ngeographic or demographic groupings,\nmeasurement conditions,\ncolorimetric summaries if available.\n\n\n\n\nPreprocessing\n\nDefine wavelength grid used for analysis.\nDocument exclusions, missingness handling, and quality-control filters.\nAlign spectra to a common grid if needed.\nStandardize reflectance scale and units.\nIdentify repeated measurements and subject-level clustering.\n\n\n\nDescriptive Spectral Analysis\n\nPlot raw and smoothed spectra.\nEstimate empirical mean and quantile bands across wavelength.\nSummarize variability by metadata groups.\nCompare spectral summaries with colorimetric quantities.\nIdentify wavelength regions with high between-subject variability.\n\n\n\nProposed Figures and Tables\n\nFigure 1: ISSA spectra overview with empirical mean and quantile bands.\nFigure 2: Grouped spectral summaries by key metadata variables.\nTable 1: Dataset characteristics, sample sizes, wavelength range, and preprocessing exclusions.\nSupplementary Figure S1: Missingness and quality-control diagnostics.\n\n\n\nSection Deliverable\nEstablish ISSA as the empirical reference distribution for downstream shape analysis, BVCM estimation, and simulation validation."
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#derivative-based-shape-analysis",
+    "href": "manuscripts/first_manuscript_outline.html#derivative-based-shape-analysis",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "Derivative-Based Shape Analysis",
+    "text": "Derivative-Based Shape Analysis\n\nRationale\n\nReflectance level and spectral shape capture different aspects of skin appearance.\nFirst derivatives highlight slope and monotonicity patterns.\nSecond derivatives highlight curvature and absorption-related local structure.\nDerivative features can make simulation discrepancies visible even when spectra have similar overall brightness.\n\n\n\nMethod\n\nSmooth reflectance spectra before numerical differentiation.\nCompute first derivative with respect to wavelength.\nCompute second derivative with respect to wavelength.\nDefine shape summaries such as:\n\nintegrated absolute first derivative,\nwavelength-specific slope extrema,\ncurvature extrema,\nderivative-based distances between spectra,\nregion-specific derivative summaries.\n\n\n\n\nDescriptive Shape Results\n\nCharacterize derivative distributions across wavelengths.\nIdentify dominant slope and curvature regions.\nCompare derivative features across skin tone or metadata groups.\nEvaluate whether simulated spectra reproduce ISSA derivative patterns.\n\n\n\nProposed Figures and Tables\n\nFigure 3: Mean reflectance, first derivative, and second derivative with uncertainty bands.\nFigure 4: Derivative feature distributions by group.\nFigure 5: Example spectra with similar level but different derivative-based shapes.\nTable 2: Candidate shape descriptors and their interpretation.\n\n\n\nSection Deliverable\nDefine the spectral shape features that motivate full-spectrum validation beyond pointwise reflectance agreement."
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#bvcm-model-method-and-estimation",
+    "href": "manuscripts/first_manuscript_outline.html#bvcm-model-method-and-estimation",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "BVCM Model: Method and Estimation",
+    "text": "BVCM Model: Method and Estimation\n\nModeling Goal\nEstimate wavelength-varying associations between reflectance and covariates while preserving uncertainty in the functional response.\n\n\nModel Specification\nLet (Y_i()) denote reflectance for observation (i) at wavelength (). A working BVCM can be written as:\n[ Y_i() = 0() + {p=1}^{P} x_{ip}_p() + _i(), ]\nwhere (_p()) are wavelength-varying coefficient functions and (_i()) captures residual spectral variation.\n\n\nCovariates\n\nCandidate ISSA covariates:\n\ncolorimetric summaries,\ndemographic variables,\nanatomical site,\nmeasurement or acquisition descriptors.\n\nCandidate simulation covariates:\n\nmelanin-related parameters,\nhemoglobin or erythema-related parameters,\nscattering parameters,\nthickness or layer parameters.\n\n\n\n\nPrior Structure\n\nUse smoothness-inducing priors for coefficient functions.\nAccount for wavelength-wise correlation in residuals when feasible.\nInclude hierarchical terms for repeated observations or subject-level clustering if supported by data structure.\n\n\n\nEstimation\n\nEstimate posterior distributions for coefficient functions.\nReport convergence diagnostics and posterior predictive checks.\nCompare alternative model forms:\n\nintercept-only empirical reference model,\ncovariate-adjusted BVCM,\nderivative-informed or derivative-validated extensions.\n\n\n\n\nProposed Figures and Tables\n\nFigure 6: Posterior mean and credible intervals for selected coefficient functions.\nFigure 7: Posterior predictive checks across wavelength.\nTable 3: Model specification, priors, and estimation settings.\nSupplementary Figure S2: MCMC diagnostics and sensitivity checks.\n\n\n\nSection Deliverable\nProduce an estimated probabilistic reference model for empirical reflectance spectra and wavelength-varying effects."
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#bvcm-based-spectrum-validation-framework",
+    "href": "manuscripts/first_manuscript_outline.html#bvcm-based-spectrum-validation-framework",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "BVCM-Based Spectrum Validation Framework",
+    "text": "BVCM-Based Spectrum Validation Framework\n\nValidation Objective\nAssess whether a simulated spectrum is compatible with the empirical spectral distribution represented by the fitted BVCM.\n\n\nValidation Inputs\n\nFitted BVCM from ISSA spectra.\nSimulated spectra generated from the SkinSim pipeline.\nCovariate or parameter information needed to condition the validation model.\n\n\n\nValidation Targets\n\nPointwise validity:\n\nwavelength-specific posterior predictive intervals,\nlocal exceedance probabilities,\nregions of systematic over- or under-reflectance.\n\nConditional validity:\n\ncompatibility given observed or simulated covariates,\nsubgroup-specific validation when metadata are available.\n\nWhole-spectrum validity:\n\nposterior predictive distance,\nintegrated residual summaries,\nderivative-based shape discrepancy.\n\n\n\n\nProposed Validation Metrics\n\nPointwise coverage indicator across wavelength.\nIntegrated absolute standardized residual.\nMaximum absolute standardized residual.\nDerivative discrepancy score.\nPosterior predictive p-value or tail probability.\nComposite validity score combining level and shape diagnostics.\n\n\n\nApplication to Simulated Spectra\n\nApply validation framework to the existing simulated spectrum set.\nCompare validation results across simulation parameter regimes.\nIdentify spectra that pass level-based checks but fail shape-based checks.\nIdentify wavelength regions where simulations deviate most from ISSA.\n\n\n\nProposed Figures and Tables\n\nFigure 8: Simulated spectra overlaid on BVCM posterior predictive bands.\nFigure 9: Pointwise validity heatmap across simulated spectra and wavelength.\nFigure 10: Level discrepancy versus derivative shape discrepancy.\nTable 4: Validation metric summaries for simulated spectra.\nSupplementary Table S1: Spectrum-level validation scores.\n\n\n\nSection Deliverable\nDemonstrate a practical validation workflow that distinguishes empirically plausible simulated spectra from spectra with wavelength-localized or shape-based discrepancies."
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#discussion",
+    "href": "manuscripts/first_manuscript_outline.html#discussion",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "Discussion",
+    "text": "Discussion\n\nMain Findings\n\nSummarize empirical ISSA spectral patterns.\nInterpret derivative-based shape features.\nDiscuss wavelength-varying effects from the BVCM.\nExplain what the validation framework reveals about simulated spectra.\n\n\n\nImplications\n\nStatistical validation can improve simulation pipelines by identifying wavelength regions and shape features needing refinement.\nBVCM-based validation offers uncertainty-aware diagnostics rather than binary acceptance rules.\nThe framework can support future simulation studies, sensor design, and fairness-aware skin appearance modeling.\n\n\n\nLimitations\n\nISSA measurement conditions and metadata may limit generalizability.\nBVCM assumptions about smoothness, covariance, and covariate availability require sensitivity analysis.\nSimulated spectra may have parameters that do not map directly to ISSA metadata.\nDerivative estimates depend on smoothing and wavelength resolution.\n\n\n\nFuture Work\n\nExtend validation to additional real spectral datasets.\nIncorporate hierarchical subject-level effects more fully.\nModel derivative spectra jointly with reflectance spectra.\nUse validation diagnostics to recalibrate simulation parameters."
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#conclusion",
+    "href": "manuscripts/first_manuscript_outline.html#conclusion",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis manuscript will present ISSA-based empirical characterization, derivative-based shape analysis, BVCM estimation, and a BVCM-derived validation framework for simulated human skin reflectance spectra. The central result is a reproducible uncertainty-aware approach for evaluating whether simulated spectra are not only visually plausible, but statistically compatible with real measured skin reflectance."
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#analysis-to-manuscript-mapping",
+    "href": "manuscripts/first_manuscript_outline.html#analysis-to-manuscript-mapping",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "Analysis-to-Manuscript Mapping",
+    "text": "Analysis-to-Manuscript Mapping\n\n\n\n\n\n\n\n\nManuscript component\nExisting project source\nExpected manuscript output\n\n\n\n\nISSA data and descriptive analysis\nnotebooks/issa_data.ipynb\nDataset description, preprocessing, descriptive figures\n\n\nDerivative-based shape analysis\nnotebooks/shape.ipynb\nShape descriptors, derivative plots, shape discrepancies\n\n\nBVCM method and estimation\nnotebooks/bvcm.ipynb, code/bvcm_gibbs.py\nModel specification, estimation diagnostics, coefficient functions\n\n\nSpectrum validation framework\nanalysis/sim_data.qmd, output/*validity.csv\nValidation metrics, simulated spectrum diagnostics"
+  },
+  {
+    "objectID": "manuscripts/first_manuscript_outline.html#draft-abstract-placeholder",
+    "href": "manuscripts/first_manuscript_outline.html#draft-abstract-placeholder",
+    "title": "Bayesian Functional Validation of Simulated Human Skin Reflectance Spectra Using the International Skin Spectra Archive",
+    "section": "Draft Abstract Placeholder",
+    "text": "Draft Abstract Placeholder\nSimulated skin reflectance spectra are increasingly used to study skin appearance, imaging systems, and downstream algorithms, but their utility depends on validation against real spectral measurements. We use the International Skin Spectra Archive as an empirical reference dataset and develop a Bayesian varying coefficient model for wavelength-indexed reflectance. We first describe empirical ISSA spectra and introduce derivative-based shape summaries that capture slope and curvature features beyond overall reflectance level. We then estimate wavelength-varying covariate effects and posterior predictive distributions for reflectance spectra. Finally, we use the fitted model to construct a validation framework for simulated spectra, combining pointwise coverage, whole-spectrum discrepancy, and derivative-based shape diagnostics. The framework identifies wavelength regions and shape characteristics where simulations agree with or deviate from empirical skin reflectance, providing an uncertainty-aware tool for improving and validating skin spectrum simulation pipelines."
+  },
+  {
+    "objectID": "notebooks/bvcm.html#pca-comparison-of-issa-bvcm-predictions-and-meta-spectra",
+    "href": "notebooks/bvcm.html#pca-comparison-of-issa-bvcm-predictions-and-meta-spectra",
+    "title": "Bayesian Varying Coefficient Model (BVCM) for Skin Reflectance Spectra",
+    "section": "6.1 PCA comparison of ISSA, BVCM predictions, and meta spectra",
+    "text": "6.1 PCA comparison of ISSA, BVCM predictions, and meta spectra\nTo compare spectral variation on a common basis, we fit PCA to the real ISSA face spectra and project the BVCM population-level predictions and the BioSkin meta_spectra onto the resulting components. This reference-based approach keeps the axes directly comparable: overlap with the ISSA score distribution indicates that a dataset reproduces the dominant empirical modes of variation, whereas displacement or dispersion outside the ISSA 95% score ellipse identifies systematic differences. BioSkin reflectance is converted from proportions to percentages when necessary so that all three inputs use the same scale.\n\n\n\n\n\n\nFigure 1: Shared PCA comparison of real ISSA face spectra, BVCM-predicted reflectance, and BioSkin meta spectra.\n\n\n\nColor key: blue circles represent the real ISSA face spectra, orange triangles represent BVCM-predicted reflectance, and green crosses represent the BioSkin meta spectra. Large X symbols mark the three dataset centroids; the dashed black ellipse is the ISSA 95% score region.\n\n\n\n\n\n\n\n\n\n\n\nDataset\n\\(n\\)\nPC1 SD\nPC2 SD\nCentroid distance from ISSA\nWithin ISSA 95% region\n\n\n\n\nReal ISSA face data\n7,923\n41.01\n8.42\n0.00\n93.4%\n\n\nBVCM predicted reflectance\n3,000\n39.22\n7.96\n0.04\n95.3%\n\n\nBioSkin meta spectra\n1,282\n109.58\n20.54\n0.56\n30.8%\n\n\n\nThe first two ISSA components explain 98.6% of the empirical spectral variance (94.6% for PC1 and 4.0% for PC2). The BVCM predictions closely reproduce this distribution: their centroid is only 0.04 standardized PC units from the ISSA centroid, and 95.3% fall inside the ISSA 95% score region. In contrast, only 30.8% of the BioSkin meta spectra fall inside that region. Their spread is also substantially wider—approximately 2.7 times the ISSA standard deviation on PC1 and 2.4 times on PC2—indicating that the meta spectra include modes or magnitudes of variation not commonly observed in the real face data.\nThe score plot and summary table provide complementary comparisons. The centroid distance measures systematic displacement from ISSA in standardized PC units, while the percentage inside the ISSA 95% region measures distributional overlap. The loading curves show which wavelength combinations drive separation along PC1 and PC2."
+  },
+  {
+    "objectID": "notebooks/bvcm.html#meta-spectra-validation-overview",
+    "href": "notebooks/bvcm.html#meta-spectra-validation-overview",
+    "title": "Bayesian Varying Coefficient Model (BVCM) for Skin Reflectance Spectra",
+    "section": "6.4 Meta spectra validation overview",
+    "text": "6.4 Meta spectra validation overview"
   }
 ]

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Junhui He">
-<meta name="dcterms.date" content="2026-04-01">
+<meta name="dcterms.date" content="2026-07-23">
 
 <title>Bayesian Varying Coefficient Model (BVCM) for Skin Reflectance Spectra – SkinSim</title>
 <style>
@@ -183,9 +183,11 @@ window.Quarto = {
   <li><a href="#synthetic-spectra-generation" id="toc-synthetic-spectra-generation" class="nav-link" data-scroll-target="#synthetic-spectra-generation"><span class="header-section-number">5</span> Synthetic spectra generation</a></li>
   <li><a href="#skin-reflectance-spectrum-filter" id="toc-skin-reflectance-spectrum-filter" class="nav-link" data-scroll-target="#skin-reflectance-spectrum-filter"><span class="header-section-number">6</span> Skin reflectance spectrum filter</a>
   <ul class="collapse">
-  <li><a href="#stage-1-chromophore-index-validation" id="toc-stage-1-chromophore-index-validation" class="nav-link" data-scroll-target="#stage-1-chromophore-index-validation"><span class="header-section-number">6.1</span> Stage 1: Chromophore index validation</a></li>
-  <li><a href="#stage-2-spectral-plausibility-assessment" id="toc-stage-2-spectral-plausibility-assessment" class="nav-link" data-scroll-target="#stage-2-spectral-plausibility-assessment"><span class="header-section-number">6.2</span> Stage 2: Spectral plausibility assessment</a></li>
-  <li><a href="#validation-results-summary" id="toc-validation-results-summary" class="nav-link" data-scroll-target="#validation-results-summary"><span class="header-section-number">6.3</span> Validation results summary</a></li>
+  <li><a href="#pca-comparison-of-issa-bvcm-predictions-and-meta-spectra" id="toc-pca-comparison-of-issa-bvcm-predictions-and-meta-spectra" class="nav-link" data-scroll-target="#pca-comparison-of-issa-bvcm-predictions-and-meta-spectra"><span class="header-section-number">6.1</span> PCA comparison of ISSA, BVCM predictions, and meta spectra</a></li>
+  <li><a href="#stage-1-chromophore-index-validation" id="toc-stage-1-chromophore-index-validation" class="nav-link" data-scroll-target="#stage-1-chromophore-index-validation"><span class="header-section-number">6.2</span> Stage 1: Chromophore index validation</a></li>
+  <li><a href="#stage-2-spectral-plausibility-assessment" id="toc-stage-2-spectral-plausibility-assessment" class="nav-link" data-scroll-target="#stage-2-spectral-plausibility-assessment"><span class="header-section-number">6.3</span> Stage 2: Spectral plausibility assessment</a></li>
+  <li><a href="#meta-spectra-validation-overview" id="toc-meta-spectra-validation-overview" class="nav-link" data-scroll-target="#meta-spectra-validation-overview"><span class="header-section-number">6.4</span> Meta spectra validation overview</a></li>
+  <li><a href="#validation-results-summary" id="toc-validation-results-summary" class="nav-link" data-scroll-target="#validation-results-summary"><span class="header-section-number">6.5</span> Validation results summary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -212,7 +214,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 1, 2026</p>
+      <p class="date">July 23, 2026</p>
     </div>
   </div>
   
@@ -274,7 +276,7 @@ window.Quarto = {
 <h1 data-number="2"><span class="header-section-number">2</span> Exploratory analysis on ISSA face sites</h1>
 <section id="skin-reflectance-and-its-first-derivative" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="skin-reflectance-and-its-first-derivative"><span class="header-section-number">2.1</span> Skin reflectance and its first derivative</h2>
-<div id="10583150" class="cell" data-execution_count="7">
+<div id="10583150" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -287,8 +289,8 @@ window.Quarto = {
 <section id="eumelanin-human-skin-colour-scale" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="eumelanin-human-skin-colour-scale"><span class="header-section-number">2.2</span> Eumelanin human skin colour scale</h2>
 <p>ISSA Face Sites Eumelanin Class Summary Table:</p>
-<div id="19474621" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="19474621" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -374,7 +376,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="0e469f5f" class="cell" data-execution_count="9">
+<div id="0e469f5f" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -394,7 +396,7 @@ window.Quarto = {
 <section id="chromophore-distribution-modeling" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="chromophore-distribution-modeling"><span class="header-section-number">2.3</span> Chromophore distribution modeling</h2>
 <p>The relationship between melanin index and erythema index is shown as:</p>
-<div id="fd5b6efd" class="cell" data-execution_count="13">
+<div id="fd5b6efd" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -404,7 +406,7 @@ window.Quarto = {
 </div>
 </div>
 <p>We apply a Gaussian mixture model with 5 components to approximate the distribution of melanin and erythema indices in the population. This allows us to identify the realistic combinations of these chromophore indices.</p>
-<div id="4f853b86" class="cell" data-execution_count="12">
+<div id="4f853b86" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -420,7 +422,7 @@ window.Quarto = {
 <p>We perform posterior inference using a Hybrid Gibbs sampler. The model is fitted to the ISSA face skin reflectance spectra, melanin index, and erythema index data.</p>
 <section id="preprocess-data" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="preprocess-data"><span class="header-section-number">3.1</span> Preprocess data</h2>
-<div id="637b739e" class="cell" data-execution_count="14">
+<div id="637b739e" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -432,10 +434,10 @@ window.Quarto = {
 </section>
 <section id="gibbs-sampler" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="gibbs-sampler"><span class="header-section-number">3.2</span> Gibbs sampler</h2>
-<div id="ffe6acc3" class="cell" data-execution_count="18">
+<div id="ffe6acc3" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-stdout">
 <pre><code>Starting Gibbs Sampler for 10000 draws and 10000 tune steps...
-Hyperparameter Acceptance Rate: 15.83%</code></pre>
+Hyperparameter Acceptance Rate: 15.88%</code></pre>
 </div>
 </div>
 </section>
@@ -443,7 +445,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 <h2 data-number="3.3" class="anchored" data-anchor-id="posterior-visualization"><span class="header-section-number">3.3</span> Posterior visualization</h2>
 <section id="coefficient-function-estimation" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="coefficient-function-estimation"><span class="header-section-number">3.3.1</span> Coefficient function estimation</h3>
-<div id="18d7328c" class="cell" data-execution_count="19">
+<div id="18d7328c" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -455,7 +457,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 </section>
 <section id="predict-reflectance-spectra-given-mi-and-ei" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="predict-reflectance-spectra-given-mi-and-ei"><span class="header-section-number">3.3.2</span> Predict reflectance spectra given MI and EI</h3>
-<div id="0dd95bab" class="cell" data-execution_count="20">
+<div id="0dd95bab" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -468,7 +470,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 </section>
 <section id="subject-specific-deviation" class="level3" data-number="3.3.3">
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="subject-specific-deviation"><span class="header-section-number">3.3.3</span> Subject-specific deviation</h3>
-<div id="e6b5fb1e" class="cell" data-execution_count="21">
+<div id="e6b5fb1e" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -477,7 +479,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 </div>
 </div>
 </div>
-<div id="d764c3f9" class="cell" data-execution_count="22">
+<div id="d764c3f9" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -493,8 +495,8 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 <h1 data-number="4"><span class="header-section-number">4</span> Model diagnostics and evaluation</h1>
 <section id="evaluation-on-training-data" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="evaluation-on-training-data"><span class="header-section-number">4.1</span> Evaluation on training data</h2>
-<div id="b46c9b9c" class="cell" data-execution_count="23">
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div id="b46c9b9c" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
 
@@ -512,16 +514,16 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
 <td>Population-Level (Fixed Effects)</td>
-<td>0.965279</td>
-<td>1.410466</td>
-<td>1.051930</td>
+<td>0.965248</td>
+<td>1.411095</td>
+<td>1.053455</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
 <td>Subject-Specific (Fixed + Random)</td>
 <td>0.999319</td>
-<td>0.197521</td>
-<td>0.131806</td>
+<td>0.197515</td>
+<td>0.131818</td>
 </tr>
 </tbody>
 </table>
@@ -529,7 +531,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 </div>
 </div>
 </div>
-<div id="eadde99a" class="cell" data-execution_count="24">
+<div id="eadde99a" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -538,7 +540,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 </div>
 </div>
 </div>
-<div id="240b066e" class="cell" data-execution_count="25">
+<div id="240b066e" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -547,7 +549,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 </div>
 </div>
 </div>
-<div id="e550d28c" class="cell" data-execution_count="26">
+<div id="e550d28c" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -559,8 +561,8 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 </section>
 <section id="evaluation-on-test-data" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="evaluation-on-test-data"><span class="header-section-number">4.2</span> Evaluation on test data</h2>
-<div id="d19aed26" class="cell" data-execution_count="27">
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div id="d19aed26" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
 
@@ -578,9 +580,9 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
 <td>Population-Level (Fixed Effects)</td>
-<td>0.964615</td>
-<td>1.427337</td>
-<td>1.067989</td>
+<td>0.964578</td>
+<td>1.428091</td>
+<td>1.06963</td>
 </tr>
 </tbody>
 </table>
@@ -588,7 +590,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 </div>
 </div>
 </div>
-<div id="a8e1a14e" class="cell" data-execution_count="28">
+<div id="a8e1a14e" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -597,7 +599,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 </div>
 </div>
 </div>
-<div id="540e21a7" class="cell" data-execution_count="29">
+<div id="540e21a7" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -606,7 +608,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 </div>
 </div>
 </div>
-<div id="167fc982" class="cell" data-execution_count="30">
+<div id="167fc982" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -627,16 +629,7 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 <li>The new subject-specific deviation <span class="math inline">\(Z^*\)</span> is sampled from <span class="math inline">\(p(Z^*\mid Y)=\int p(Z^*\mid Z) p(Z\mid Y) dZ=p(Z^*)\)</span>, where the last equality holds as <span class="math inline">\(Z^*\)</span> is independent to <span class="math inline">\(Z\)</span>.</li>
 </ul></li>
 </ol>
-<div id="eed85d9a" class="cell" data-execution_count="41">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bvcm_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="51598be8" class="cell" data-execution_count="40">
+<div id="51598be8" class="cell">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -654,42 +647,117 @@ Hyperparameter Acceptance Rate: 15.83%</code></pre>
 <li><p><strong>Spectral Plausibility Assessment:</strong> For spectra that pass Stage 1, evaluate their statistical plausibility using the BVCM model. Given the spectrum’s (MEL, HEM) pair, compute the population-level predicted spectrum from the BVCM fixed effects. Calculate the Mahalanobis distance between the candidate spectrum and the predicted spectrum, accounting for the covariance structure learned from the training data. Reject spectra whose Mahalanobis distance exceeds a predetermined threshold (e.g., the 95th percentile of distances observed in the training set), as these exhibit systematic deviations inconsistent with empirically observed skin optical properties.</p></li>
 </ol>
 <p>This dual-stage filter ensures generated spectra are both compositionally plausible (Stage 1) and spectrally consistent with real human skin measurements (Stage 2).</p>
-<section id="stage-1-chromophore-index-validation" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="stage-1-chromophore-index-validation"><span class="header-section-number">6.1</span> Stage 1: Chromophore index validation</h2>
-<div id="73713e9f" class="cell" data-execution_count="62">
+<section id="pca-comparison-of-issa-bvcm-predictions-and-meta-spectra" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="pca-comparison-of-issa-bvcm-predictions-and-meta-spectra"><span class="header-section-number">6.1</span> PCA comparison of ISSA, BVCM predictions, and meta spectra</h2>
+<p>To compare spectral variation on a common basis, we fit PCA to the real ISSA face spectra and project the BVCM population-level predictions and the BioSkin <code>meta_spectra</code> onto the resulting components. This reference-based approach keeps the axes directly comparable: overlap with the ISSA score distribution indicates that a dataset reproduces the dominant empirical modes of variation, whereas displacement or dispersion outside the ISSA 95% score ellipse identifies systematic differences. BioSkin reflectance is converted from proportions to percentages when necessary so that all three inputs use the same scale.</p>
+<div id="fig-pca-issa-bvcm-meta" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A PCA score plot comparing ISSA face data, BVCM predictions, and BioSkin meta spectra, alongside PC loading curves over wavelength.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pca-issa-bvcm-meta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/pca_issa_bvcm_meta_comparison.png" class="img-fluid figure-img" alt="A PCA score plot comparing ISSA face data, BVCM predictions, and BioSkin meta spectra, alongside PC loading curves over wavelength.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pca-issa-bvcm-meta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Shared PCA comparison of real ISSA face spectra, BVCM-predicted reflectance, and BioSkin meta spectra.
+</figcaption>
+</figure>
+</div>
+<p><strong>Color key:</strong> blue circles represent the real ISSA face spectra, orange triangles represent BVCM-predicted reflectance, and green crosses represent the BioSkin meta spectra. Large X symbols mark the three dataset centroids; the dashed black ellipse is the ISSA 95% score region.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dataset</th>
+<th style="text-align: right;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: right;">PC1 SD</th>
+<th style="text-align: right;">PC2 SD</th>
+<th style="text-align: right;">Centroid distance from ISSA</th>
+<th style="text-align: right;">Within ISSA 95% region</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Real ISSA face data</td>
+<td style="text-align: right;">7,923</td>
+<td style="text-align: right;">41.01</td>
+<td style="text-align: right;">8.42</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">93.4%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BVCM predicted reflectance</td>
+<td style="text-align: right;">3,000</td>
+<td style="text-align: right;">39.22</td>
+<td style="text-align: right;">7.96</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">95.3%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BioSkin meta spectra</td>
+<td style="text-align: right;">1,282</td>
+<td style="text-align: right;">109.58</td>
+<td style="text-align: right;">20.54</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">30.8%</td>
+</tr>
+</tbody>
+</table>
+<p>The first two ISSA components explain 98.6% of the empirical spectral variance (94.6% for PC1 and 4.0% for PC2). The BVCM predictions closely reproduce this distribution: their centroid is only 0.04 standardized PC units from the ISSA centroid, and 95.3% fall inside the ISSA 95% score region. In contrast, only 30.8% of the BioSkin meta spectra fall inside that region. Their spread is also substantially wider—approximately 2.7 times the ISSA standard deviation on PC1 and 2.4 times on PC2—indicating that the meta spectra include modes or magnitudes of variation not commonly observed in the real face data.</p>
+<p>The score plot and summary table provide complementary comparisons. The centroid distance measures systematic displacement from ISSA in standardized PC units, while the percentage inside the ISSA 95% region measures distributional overlap. The loading curves show which wavelength combinations drive separation along PC1 and PC2.</p>
+</section>
+<section id="stage-1-chromophore-index-validation" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="stage-1-chromophore-index-validation"><span class="header-section-number">6.2</span> Stage 1: Chromophore index validation</h2>
+<div id="73713e9f" class="cell" data-execution_count="74">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bvcm_files/figure-html/cell-31-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="bvcm_files/figure-html/cell-34-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="stage-2-spectral-plausibility-assessment" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="stage-2-spectral-plausibility-assessment"><span class="header-section-number">6.2</span> Stage 2: Spectral plausibility assessment</h2>
-<div id="1d04a943" class="cell" data-execution_count="64">
+<section id="stage-2-spectral-plausibility-assessment" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="stage-2-spectral-plausibility-assessment"><span class="header-section-number">6.3</span> Stage 2: Spectral plausibility assessment</h2>
+<div id="1d04a943" class="cell" data-execution_count="75">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bvcm_files/figure-html/cell-32-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="bvcm_files/figure-html/cell-35-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="validation-results-summary" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="validation-results-summary"><span class="header-section-number">6.3</span> Validation results summary</h2>
-<div id="5f65ab7d" class="cell" data-execution_count="58">
+<section id="meta-spectra-validation-overview" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="meta-spectra-validation-overview"><span class="header-section-number">6.4</span> Meta spectra validation overview</h2>
+<div id="meta-three-panel-plot" class="cell" data-execution_count="79">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bvcm_files/figure-html/cell-33-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="bvcm_files/figure-html/cell-36-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="bbd71617" class="cell" data-execution_count="66">
+</section>
+<section id="validation-results-summary" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="validation-results-summary"><span class="header-section-number">6.5</span> Validation results summary</h2>
+<div id="5f65ab7d" class="cell" data-execution_count="76">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bvcm_files/figure-html/cell-37-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="bbd71617" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-stdout">
 <pre><code>
 ======================================================================
